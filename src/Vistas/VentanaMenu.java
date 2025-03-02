@@ -14,7 +14,7 @@ public class VentanaMenu extends JFrame {
         setLayout(new BorderLayout());
 
 
-        JPanel panelPlatos = new JPanel(new GridLayout(0, 1, 10, 10)); // Organiza los platos en una columna
+        JPanel panelPlatos = new JPanel(new GridLayout(0, 1, 10, 10)); 
 
         JLabel titulo = new JLabel("Platos Disponibles", SwingConstants.CENTER);
         panelPlatos.add(titulo);
@@ -52,7 +52,7 @@ public class VentanaMenu extends JFrame {
         panelBotones.add(btnMesas);
         panelBotones.add(btnSalir);
 
-        
+
         add(panelPlatos, BorderLayout.CENTER);
         add(panelBotones, BorderLayout.SOUTH);
 
