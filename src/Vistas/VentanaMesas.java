@@ -40,7 +40,7 @@ public class VentanaMesas extends JFrame {
     }
 
     private void abrirPedidos(int numeroMesa) {
-        dispose(); // Cierra la ventana actual
+        dispose();
         new VentanaPedidos(sesion, numeroMesa);
     }
 }
