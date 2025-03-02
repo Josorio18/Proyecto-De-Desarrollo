@@ -41,6 +41,6 @@ public class VentanaMesas extends JFrame {
 
     private void abrirPedidos(int numeroMesa) {
         dispose();
-        new VentanaPedidos(sesion, numeroMesa);
+
     }
 }

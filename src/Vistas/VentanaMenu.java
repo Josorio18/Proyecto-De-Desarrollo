@@ -6,44 +6,42 @@ import java.awt.*;
 
 public class VentanaMenu extends JFrame {
     public VentanaMenu(Sesion sesion) {
+
         setTitle("Menú del Restaurante");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
 
-        // Configurar layout principal centrado
-        setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(10, 10, 10, 10); // Espaciado entre elementos
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.CENTER;
 
-        // Panel para los botones del menú
-        JPanel panelMenu = new JPanel(new GridLayout(0, 1, 10, 10)); // Botones en columna
+        JPanel panelPlatos = new JPanel(new GridLayout(0, 1, 10, 10)); // Organiza los platos en una columna
 
-        String[] opciones = { "Gestión de Mesas" };
-        Class<?>[] ventanas = { VentanaMesas.class };
+        JLabel titulo = new JLabel("Platos Disponibles", SwingConstants.CENTER);
+        panelPlatos.add(titulo);
 
-        for (int i = 0; i < opciones.length; i++) {
-            JButton boton = new JButton(opciones[i]);
-            int index = i;
-            boton.addActionListener(e -> {
-                dispose();
-                try {
-                    ventanas[index].getDeclaredConstructor(Sesion.class).newInstance(sesion);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            });
-            panelMenu.add(boton);
+        String[] platos = {
+                "Bandeja Paisa - $35,000",
+                "Ajiaco - $25,000",
+                "Sancocho - $30,000",
+                "Arepa Rellena - $15,000",
+                "Empanadas (5 uds) - $10,000",
+                "Jugo Natural - $8,000"
+        };
+
+        for (String plato : platos) {
+            JLabel etiquetaPlato = new JLabel(plato, SwingConstants.CENTER);
+            panelPlatos.add(etiquetaPlato);
         }
 
-        // Agregar el menú centrado
-        add(panelMenu, gbc);
 
-        // Botón "Salir" centrado justo debajo del menú
-        gbc.gridy = 1;
+        JPanel panelBotones = new JPanel(new FlowLayout());
+
+        JButton btnMesas = new JButton("Gestión de Mesas");
+        btnMesas.addActionListener(e -> {
+            dispose();
+            new VentanaMesas(sesion);
+        });
+
         JButton btnSalir = new JButton("Salir");
         btnSalir.addActionListener(e -> {
             sesion.cerrarSesion();
@@ -51,8 +49,14 @@ public class VentanaMenu extends JFrame {
             new VentanaInicio(sesion);
         });
 
-        add(btnSalir, gbc);
+        panelBotones.add(btnMesas);
+        panelBotones.add(btnSalir);
+
+        
+        add(panelPlatos, BorderLayout.CENTER);
+        add(panelBotones, BorderLayout.SOUTH);
 
         setVisible(true);
     }
 }
+
