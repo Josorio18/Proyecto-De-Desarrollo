@@ -21,7 +21,7 @@ public class VentanaConfiguracionSistema extends JFrame {
 
         btnInventarioIngredientes.addActionListener(e -> {
             dispose();
-            new VentanaInventarioIngredientes(sesion);
+            new VentanaInventario(sesion);
         });
 
         btnHistorialVentas.addActionListener(e -> {
