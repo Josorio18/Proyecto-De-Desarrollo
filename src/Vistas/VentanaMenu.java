@@ -13,10 +13,10 @@ public class VentanaMenu extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-
-        JPanel panelPlatos = new JPanel(new GridLayout(0, 1, 10, 10)); 
-
+        // Panel de Platos
+        JPanel panelPlatos = new JPanel(new GridLayout(0, 1, 10, 10));
         JLabel titulo = new JLabel("Platos Disponibles", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 20));
         panelPlatos.add(titulo);
 
         String[] platos = {
@@ -33,13 +33,18 @@ public class VentanaMenu extends JFrame {
             panelPlatos.add(etiquetaPlato);
         }
 
-
         JPanel panelBotones = new JPanel(new FlowLayout());
 
         JButton btnMesas = new JButton("Gestión de Mesas");
         btnMesas.addActionListener(e -> {
             dispose();
             new VentanaMesas(sesion);
+        });
+
+        JButton btnConfiguracion = new JButton("Configuración del Sistema");
+        btnConfiguracion.addActionListener(e -> {
+            dispose();
+            new VentanaConfiguracionSistema(sesion);
         });
 
         JButton btnSalir = new JButton("Salir");
@@ -50,8 +55,8 @@ public class VentanaMenu extends JFrame {
         });
 
         panelBotones.add(btnMesas);
+        panelBotones.add(btnConfiguracion);
         panelBotones.add(btnSalir);
-
 
         add(panelPlatos, BorderLayout.CENTER);
         add(panelBotones, BorderLayout.SOUTH);
@@ -59,4 +64,5 @@ public class VentanaMenu extends JFrame {
         setVisible(true);
     }
 }
+
 
