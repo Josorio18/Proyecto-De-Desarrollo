@@ -36,6 +36,27 @@ public class VentanaGestionEmpleados extends JFrame {
             new VentanaMenu(sesion);
         });
 
+        JButton btnInventario = new JButton("Ir a Inventario");
+        btnInventario.addActionListener(e -> {
+            dispose();
+            new VentanaInventario(sesion);
+        });
+
+        JButton btnPedidos = new JButton("Ir a Gestión de Pedidos");
+        btnPedidos.addActionListener(e -> {
+            dispose();
+            new VentanaGestionPedidos(sesion);
+        });
+
+        JButton btnRegistroClientes = new JButton("Ir a Registro de Clientes");
+        btnRegistroClientes.addActionListener(e -> {
+            dispose();
+            new VentanaRegistroClientes(sesion);
+        });
+
+        panelBotones.add(btnInventario);
+        panelBotones.add(btnPedidos);
+        panelBotones.add(btnRegistroClientes);
         panelBotones.add(btnRegresarMenu);
         panel.add(panelBotones, BorderLayout.SOUTH);
 

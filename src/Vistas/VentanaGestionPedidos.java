@@ -4,10 +4,10 @@ import Servicios.Sesion;
 import javax.swing.*;
 import java.awt.*;
 
-public class VentanaPedidos extends JFrame {
+public class VentanaGestionPedidos extends JFrame {
     private final Sesion sesion;
 
-    public VentanaPedidos(Sesion sesion) {
+    public VentanaGestionPedidos(Sesion sesion) {
         this.sesion = sesion;
         setTitle("Gestión de Pedidos");
         setSize(800, 600);
@@ -21,28 +21,42 @@ public class VentanaPedidos extends JFrame {
 
         String[] columnas = {"ID Pedido", "Cliente", "Estado"};
         Object[][] datos = {
-                {"001", "Juan Pérez", "En preparación"},
-                {"002", "Ana Gómez", "Listo"},
-                {"003", "Carlos Ruiz", "Entregado"}
+                {"1001", "Juan Pérez", "En preparación"},
+                {"1002", "Ana Torres", "Listo"},
+                {"1003", "Carlos Sánchez", "Entregado"}
         };
 
         JTable tablaPedidos = new JTable(datos, columnas);
         panel.add(new JScrollPane(tablaPedidos), BorderLayout.CENTER);
 
         JPanel panelBotones = new JPanel(new FlowLayout());
-        JButton btnRegresarInventario = new JButton("Regresar a Inventario");
-        btnRegresarInventario.addActionListener(e -> {
-            dispose();
-            new VentanaInventario(sesion);
-        });
-
         JButton btnRegresarMenu = new JButton("Regresar al Menú");
         btnRegresarMenu.addActionListener(e -> {
             dispose();
             new VentanaMenu(sesion);
         });
 
-        panelBotones.add(btnRegresarInventario);
+        JButton btnInventario = new JButton("Ir a Inventario");
+        btnInventario.addActionListener(e -> {
+            dispose();
+            new VentanaInventario(sesion);
+        });
+
+        JButton btnGestionEmpleados = new JButton("Ir a Gestión de Empleados");
+        btnGestionEmpleados.addActionListener(e -> {
+            dispose();
+            new VentanaGestionEmpleados(sesion);
+        });
+
+        JButton btnRegistroClientes = new JButton("Ir a Registro de Clientes");
+        btnRegistroClientes.addActionListener(e -> {
+            dispose();
+            new VentanaRegistroClientes(sesion);
+        });
+
+        panelBotones.add(btnInventario);
+        panelBotones.add(btnGestionEmpleados);
+        panelBotones.add(btnRegistroClientes);
         panelBotones.add(btnRegresarMenu);
         panel.add(panelBotones, BorderLayout.SOUTH);
 

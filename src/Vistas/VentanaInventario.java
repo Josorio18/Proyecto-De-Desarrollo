@@ -35,7 +35,7 @@ public class VentanaInventario extends JFrame {
         JButton btnRegresarPedidos = new JButton("Regresar a Pedidos");
         btnRegresarPedidos.addActionListener(e -> {
             dispose();
-            new VentanaPedidos(sesion);
+            new VentanaGestionPedidos(sesion);
         });
 
         JButton btnRegresarMenu = new JButton("Regresar al Menú");
