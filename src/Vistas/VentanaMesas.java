@@ -15,7 +15,7 @@ public class VentanaMesas extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-
+        // Panel que contiene los botones de las mesas
         JPanel panelMesas = new JPanel(new GridLayout(3, 5, 10, 10));
         for (int i = 1; i <= TOTAL_MESAS; i++) {
             JButton btnMesa = new JButton("Mesa " + i);
@@ -24,13 +24,12 @@ public class VentanaMesas extends JFrame {
             panelMesas.add(btnMesa);
         }
 
-
+        // Botón para regresar al menú principal
         JButton btnRegresar = new JButton("Regresar");
         btnRegresar.addActionListener(e -> {
             dispose();
             new VentanaMenu(sesion);
         });
-
 
         setLayout(new BorderLayout());
         add(panelMesas, BorderLayout.CENTER);
@@ -39,8 +38,13 @@ public class VentanaMesas extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Método para abrir la gestión de pedidos de una mesa específica.
+     * @param numeroMesa Número de la mesa seleccionada.
+     */
     private void abrirPedidos(int numeroMesa) {
         dispose();
-
+        // Lógica futura para abrir la ventana de pedidos de la mesa seleccionada
     }
 }
+

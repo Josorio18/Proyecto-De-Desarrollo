@@ -4,6 +4,10 @@ import Servicios.Sesion;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Ventana de Configuración del Sistema.
+ * Permite navegar a diferentes secciones como historial de ventas e inventario de ingredientes.
+ */
 public class VentanaConfiguracionSistema extends JFrame {
     public VentanaConfiguracionSistema(Sesion sesion) {
         setTitle("Configuración del Sistema");
@@ -19,14 +23,16 @@ public class VentanaConfiguracionSistema extends JFrame {
         JButton btnInventarioIngredientes = new JButton("Inventario de ingredientes");
         JButton btnRestablecer = new JButton("Restablecer Configuración");
 
-        btnInventarioIngredientes.addActionListener(e -> {
-            dispose();
-            new VentanaInventario(sesion);
-        });
-
+        // Acción para abrir historial de ventas
         btnHistorialVentas.addActionListener(e -> {
             dispose();
             new VentanaHistorialVentas(sesion);
+        });
+
+        // Acción para abrir inventario de ingredientes
+        btnInventarioIngredientes.addActionListener(e -> {
+            dispose();
+            new VentanaInventario(sesion);
         });
 
         panelOpciones.add(btnHistorialVentas);

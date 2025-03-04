@@ -5,8 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class VentanaMenu extends JFrame {
-    public VentanaMenu(Sesion sesion) {
 
+    public VentanaMenu(Sesion sesion) {
         setTitle("Menú del Restaurante");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,6 +28,7 @@ public class VentanaMenu extends JFrame {
                 "Jugo Natural - $8,000"
         };
 
+        // Agrega los platos al panel
         for (String plato : platos) {
             JLabel etiquetaPlato = new JLabel(plato, SwingConstants.CENTER);
             panelPlatos.add(etiquetaPlato);
@@ -35,18 +36,21 @@ public class VentanaMenu extends JFrame {
 
         JPanel panelBotones = new JPanel(new FlowLayout());
 
+        // Botón para la gestión de mesas
         JButton btnMesas = new JButton("Gestión de Mesas");
         btnMesas.addActionListener(e -> {
             dispose();
             new VentanaMesas(sesion);
         });
 
+        // Botón para la configuración del sistema
         JButton btnConfiguracion = new JButton("Configuración del Sistema");
         btnConfiguracion.addActionListener(e -> {
             dispose();
             new VentanaConfiguracionSistema(sesion);
         });
 
+        // Botón para salir del sistema
         JButton btnSalir = new JButton("Salir");
         btnSalir.addActionListener(e -> {
             sesion.cerrarSesion();

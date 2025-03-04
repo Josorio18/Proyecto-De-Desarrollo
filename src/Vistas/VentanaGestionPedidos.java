@@ -19,6 +19,7 @@ public class VentanaGestionPedidos extends JFrame {
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         panel.add(titulo, BorderLayout.NORTH);
 
+        // Definición de la tabla con pedidos
         String[] columnas = {"ID Pedido", "Cliente", "Estado"};
         Object[][] datos = {
                 {"1001", "Juan Pérez", "En preparación"},

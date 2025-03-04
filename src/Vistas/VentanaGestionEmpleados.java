@@ -19,6 +19,7 @@ public class VentanaGestionEmpleados extends JFrame {
         titulo.setFont(new Font("Arial", Font.BOLD, 20));
         panel.add(titulo, BorderLayout.NORTH);
 
+        // Definición de la tabla con empleados
         String[] columnas = {"ID", "Nombre", "Cargo"};
         Object[][] datos = {
                 {"001", "Pedro López", "Cocinero"},
